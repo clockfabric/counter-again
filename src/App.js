@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Counters from "./components/Counters";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [numberOfCounters, setNumberOfCounters] = useState(0);
+
+	const updateNumberOfCounters = count => {
+		setNumberOfCounters(count);
+	};
+
+	return (
+		<div className='App'>
+			<h1 className='m-5'>Number of counters: {numberOfCounters}</h1>
+			<Counters updateNumberOfCounters={updateNumberOfCounters} />
+		</div>
+	);
 }
 
 export default App;
